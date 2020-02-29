@@ -1,0 +1,9 @@
+.topnav {
+    background-color: aquamarine;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: lavender;
+    padding: 15px;
+}
