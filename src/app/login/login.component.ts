@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   userInfo: any;
   authSuccess: boolean;
   hideLoginForm: boolean;
+  LoginError: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,9 +26,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem("authStatus") === '200') {
       this.hideLoginForm = true
+      this._Router.navigateByUrl('/home')
     } else this.hideLoginForm = false;
 
-    
+
     this._HttpClient.get("assets/usersDB.json").subscribe(data => {
       let Data: any = data;
       this.users = Data.usersDB;
@@ -61,7 +63,7 @@ export class LoginComponent implements OnInit {
       } else {
         let key = 'authStatus';
         localStorage.setItem(key, "402");
-        this._Router.navigateByUrl("/home");
+        this.LoginError = true;
       }
     }
   }

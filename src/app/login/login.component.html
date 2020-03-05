@@ -1,23 +1,24 @@
 <ng-container *ngIf="!hideLoginForm">
+  <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
-    <h2>Login</h2>
     <div class="form-group">
-      <label for="userid" class="lbl regular">User ID: </label>
-      <input class="inputbox" type="text" formControlName="userid" [ngClass]="{'is-invalid':f.userid.errors}" required />
+      <b>User ID</b><input class="inputbox" type="text" placeholder="User ID" formControlName="userid" [ngClass]="{'is-invalid':f.userid.errors}" required />
       <div *ngIf="submitted && f.userid.errors" class="errorTxt regular">
         userid is invalid
       </div>
     </div>
     <div class="form-group">
-      <label for="password" class="lbl regular">Password: </label>
-      <input class="inputbox" type="password" formControlName="password"
+      <b>Password</b>
+      <input class="inputbox" type="password" placeholder="Password" formControlName="password"
         [ngClass]="{'is-invalid':submitted && f.password.errors}" required />
       <div *ngIf="submitted && f.password.errors" class="errorTxt regular">
         Password is invalid
       </div>
     </div>
+    <b class="LoginError" *ngIf="LoginError">Incorrect Credentials, Try Again.</b>
     <div class="form-group">
-      <button class="btn regular">Submit</button>
+      <button class="btn regular" >Submit</button>
+      <a class="cancelLink" routerLink="/home">Cancel</a>
     </div>
   </form>
 </ng-container>

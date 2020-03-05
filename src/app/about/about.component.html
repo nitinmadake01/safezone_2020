@@ -1,14 +1,10 @@
 <ng-container>
-  <div class="topsection">
-    <nav class="navbar navbar-fixed-top navbar-dark">
-      <div class="container" class="topnav-right">
+    <nav class="topnav">
         <a routerLink="/home">Home</a>
-        <a routerLink="/about">About</a>
+        <a class="active" routerLink="/about">About</a>
         <a *ngIf="primeMember" routerLink="/gallery">Gallery</a>
         <button *ngIf="primeMember" type="button" (click)="Logout()">Logout</button>
         <a *ngIf="!primeMember" type="text" routerLink="/login">Login</a>
-      </div>
     </nav>
-  </div>
-  <h1>About Page</h1>
+  <p>Though photography is a much younger medium than painting—the first photo is widely considered to date from 1826—the astonishing technological advances since then mean that there are now far more pictures taken every day than there are canvases in all the world’s galleries and museums. In 2016 alone, hundreds of billions of images were made.<br>We began this project with what seemed like a straightforward idea: assemble a list of the 100 most influential photographs ever taken. How do you narrow a pool that large? You start by calling in the experts. We reached out to curators, historians and photo editors around the world for suggestions. Their thoughtful nominations whittled the field, and then we asked TIME reporters and editors to see if those held up to scrutiny. That meant conducting thousands of interviews with the photographers, picture subjects, their friends and family members and others, anywhere the rabbit holes led. It was an exhaustive process that unearthed some incredible stories that we are proud to tell for the first time, in both written stories and original documentary videos.<br>There is no formula that makes a picture influential. Some images are on our list because they were the first of their kind, others because they shaped the way we think. And some made the cut because they directly changed the way we live. What all 100 share is that they are turning points in our human experience.<b></b>In the process of putting this list together, we noticed that one aspect of influence has largely remained constant throughout photography’s nearly two centuries. The photographer has to be there. The best photography is a form of bearing witness, a way of bringing a single vision to the larger world. That was as true for Alexander Gardner when he took his horse-pulled darkroom to the Battle of Antietam in 1862 as it was for David Guttenfelder when he was the first professional photographer to post directly to Instagram from inside North Korea in 2013. As James Nachtwey, who has dedicated his life to being there, put it some years ago, “You keep on going, keep on sending the pictures, because they can create an atmosphere where change is possible. I always hang on to that.”</p>
 </ng-container>

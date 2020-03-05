@@ -1,16 +1,14 @@
-<div class="topsection">
+<ng-container class="topsection">
 
-  <nav class="navbar navbar-fixed-top navbar-dark">
-    <div class="container" class="topnav-right">
-      <a routerLink="/home">Home</a>
+  <nav class="topnav">
+      <a class="active" routerLink="/home">Home</a>
       <a routerLink="/about">About</a>
       <a *ngIf="!primeMember" routerLink="/login">Login</a>
       <a *ngIf="primeMember" routerLink="/gallery">Gallery</a>
       <button *ngIf="primeMember" type="button" (click)="Logout()">Logout</button>
-    </div>
   </nav>
 
-
   <h1>HOMEPAGE</h1>
-</div>
+
+</ng-container>
 
