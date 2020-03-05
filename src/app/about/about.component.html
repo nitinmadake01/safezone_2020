@@ -4,9 +4,9 @@
       <div class="container" class="topnav-right">
         <a routerLink="/home">Home</a>
         <a routerLink="/about">About</a>
-        <a *ngIf="showGallery" routerLink="/gallery">Gallery</a>
-        <button *ngIf="showGallery" type="button" (click)="Logout()">Logout</button>
-        <a *ngIf="!showGallery" type="text" routerLink="/login">Login</a>
+        <a *ngIf="primeMember" routerLink="/gallery">Gallery</a>
+        <button *ngIf="primeMember" type="button" (click)="Logout()">Logout</button>
+        <a *ngIf="!primeMember" type="text" routerLink="/login">Login</a>
       </div>
     </nav>
   </div>

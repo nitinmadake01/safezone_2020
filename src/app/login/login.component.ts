@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   users: any = [];
   userInfo: any;
   authSuccess: boolean;
+  hideLoginForm: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,6 +23,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem("authStatus") === '200') {
+      this.hideLoginForm = true
+    } else this.hideLoginForm = false;
+
+    
     this._HttpClient.get("assets/usersDB.json").subscribe(data => {
       let Data: any = data;
       this.users = Data.usersDB;
@@ -40,9 +46,9 @@ export class LoginComponent implements OnInit {
     let key = 'authStatus';
     this.users.forEach(e => {
       if (e.userid === this.f.userid.value && e.password === this.f.password.value) {
+        localStorage.setItem(key, "200");
         this.authSuccess = true;
-        sessionStorage.setItem(key, "success");
-      } else sessionStorage.setItem(key, "fails");
+      }
 
     });
   }
@@ -52,6 +58,10 @@ export class LoginComponent implements OnInit {
       this.checkValidUser();
       if (this.authSuccess) {
         this._Router.navigateByUrl("/gallery");
+      } else {
+        let key = 'authStatus';
+        localStorage.setItem(key, "402");
+        this._Router.navigateByUrl("/home");
       }
     }
   }

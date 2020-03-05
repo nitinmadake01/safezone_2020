@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    readonly _Router:Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  Logout(){
+    localStorage.setItem('authStatus', "404");
+    this._Router.navigateByUrl('/home');
   }
 
 }

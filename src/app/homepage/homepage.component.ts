@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -8,17 +9,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomepageComponent implements OnInit {
   publicData: any;
-  showGallery:boolean;
+  primeMember: boolean;
 
   constructor(
-    private _HttpClient: HttpClient
+    private _HttpClient: HttpClient,
+    private _Router: Router
   ) { }
 
   ngOnInit() {
-    if(localStorage.getItem('authStatus') === "200"){
-      this.showGallery = true;
-    }
-    console.log("homepage",localStorage.getItem('authStatus'))
+    this.primeMember = localStorage.getItem('authStatus') === "200" ? true : false;
+    console.log("homepage", localStorage.getItem('authStatus'))
     this._HttpClient.get("/assets/publicData.json").subscribe(data => {
       let Data: any = data;
       this.publicData = Data.images;
@@ -26,12 +26,11 @@ export class HomepageComponent implements OnInit {
     })
   }
 
-  logout(){
-    alert('hi');
-    let key="authStatus"
-    localStorage.setItem(key, "404");
-  } 
-  ngOnDestroy(){
+  Logout() {
+    localStorage.setItem('authStatus', "404");
+    this.ngOnInit();
+  }
+  ngOnDestroy() {
     console.log("HomepageComponent destroy");
   }
 
