@@ -1,3 +1,16 @@
-<p>
-  homepage works!
-</p>
+<div class="topsection">
+
+  <nav class="navbar navbar-fixed-top navbar-dark">
+    <div class="container" class="topnav-right">
+      <a routerLink="/home">Home</a>
+      <a routerLink="/about">About</a>
+      <a *ngIf="!showGallery" routerLink="/login">Login</a>
+      <a *ngIf="showGallery" routerLink="/gallery">Gallery</a>
+      <button *ngIf="showGallery" type="button" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+
+  <h1>HOMEPAGE</h1>
+</div>
+
