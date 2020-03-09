@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./gallery.component.css','../common/safezone-common.css']
 })
 export class GalleryComponent implements OnInit {
+  loggedUser:string;
 
   constructor(
     readonly _Router:Router
   ) { }
 
   ngOnInit() {
+    this.loggedUser = localStorage.getItem('username') ? localStorage.getItem('username') : '';
   }
 
   Logout(){

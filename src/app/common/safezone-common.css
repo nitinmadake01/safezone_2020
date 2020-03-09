@@ -1,6 +1,9 @@
 .topnav {
     overflow: hidden;
     background-color: transparent;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-family: sans-serif;
   }
   
   .topnav a {
@@ -10,6 +13,7 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    font-family: sans-serif;
   }
   
   .topnav a:hover {
@@ -20,4 +24,22 @@
   .topnav a.active {
     background-color: orange;
     color: white;
+  }
+
+  button {
+    background-color: #4CAF50; /* Green */
+    border-radius: 30px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+
+  p{
+    font-size: 16px;
+    font-family: sans-serif;
   }

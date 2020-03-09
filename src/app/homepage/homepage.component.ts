@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css','../common/safezone-common.css']
+  styleUrls: ['./homepage.component.css', '../common/safezone-common.css']
 })
 export class HomepageComponent implements OnInit {
   publicData: any;
   primeMember: boolean;
+  loggedUser:string;
 
   constructor(
     private _HttpClient: HttpClient,
@@ -17,21 +18,24 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getPublicData();
     this.primeMember = localStorage.getItem('authStatus') === "200" ? true : false;
+    this.loggedUser = localStorage.getItem('username') ? localStorage.getItem('username') : '';
     console.log("homepage", localStorage.getItem('authStatus'))
-    this._HttpClient.get("/assets/publicData.json").subscribe(data => {
-      let Data: any = data;
-      this.publicData = Data.images;
-      console.log(this.publicData, "public s")
+    
+  }
+
+  getPublicData() {
+
+    this._HttpClient.get("assets/publicData.json").subscribe(data =>{
+      console.log(data);
+      this.publicData = data;
     })
+
   }
 
   Logout() {
     localStorage.setItem('authStatus', "404");
     this.ngOnInit();
   }
-  ngOnDestroy() {
-    console.log("HomepageComponent destroy");
-  }
-
 }

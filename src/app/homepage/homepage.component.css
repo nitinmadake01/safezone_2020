@@ -1,0 +1,8 @@
+::ng-deep img{
+    width: 500px !important;
+    height: auto;
+    margin: auto;
+    margin-right: 11px;
+    margin-left: 11px;
+    margin-bottom: 11px;
+}

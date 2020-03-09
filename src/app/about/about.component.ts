@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
   primeMember: boolean;
+  loggedUser:string;
   constructor(readonly _Router: Router) { }
 
   ngOnInit() {
     this.primeMember = localStorage.getItem('authStatus') === '200' ? true : false;
+    this.loggedUser = localStorage.getItem('username') ? localStorage.getItem('username') : '';
   }
 
   Logout() {

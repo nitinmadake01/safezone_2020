@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     let key = 'authStatus';
     this.users.forEach(e => {
       if (e.userid === this.f.userid.value && e.password === this.f.password.value) {
+        localStorage.setItem('username',e.username)
         localStorage.setItem(key, "200");
         this.authSuccess = true;
       }
