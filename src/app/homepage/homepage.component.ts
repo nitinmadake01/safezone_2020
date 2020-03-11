@@ -35,6 +35,7 @@ export class HomepageComponent implements OnInit {
   }
 
   Logout() {
+    localStorage.setItem('username', '');
     localStorage.setItem('authStatus', "404");
     this.ngOnInit();
   }

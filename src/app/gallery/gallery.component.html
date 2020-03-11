@@ -4,8 +4,11 @@
     <a routerLink="/about">About</a>
     <a class="active" routerLink="/gallery">Gallery</a>
     <button type="button" (click)="Logout()">Logout</button>
-    <b>Logged User: {{loggedUser}}</b>
+    <b *ngIf="loggedUser">Logged User: {{loggedUser}}</b>
   </nav>
+  <h1>Dear {{loggedUser}}, Welcome to Gallery</h1>
+  <marquee *ngIf="loggedUser" class="prime">Congratulations!!! Now you have a Premium Gallery access</marquee>
+  <hr>
   <img src="https://wallpapercave.com/wp/wp2208679.jpg">
   <img src="https://wallpapercave.com/wp/wp3276765.jpg">
   <img src="https://wallpapercave.com/wp/wp3276769.jpg">

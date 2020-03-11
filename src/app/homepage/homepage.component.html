@@ -6,8 +6,12 @@
     <a *ngIf="!primeMember" routerLink="/login">Login</a>
     <a *ngIf="primeMember" routerLink="/gallery">Gallery</a>
     <button *ngIf="primeMember" type="button" (click)="Logout()">Logout</button>
-    <b>Logged User: {{loggedUser}}</b>
+    <b *ngIf="primeMember">Logged User: {{loggedUser}}</b>
   </nav>
+  <h1>Welcome to Safezone Home Page</h1>
+  <marquee *ngIf="!primeMember" class="nonPrime">Kindly login to have a Premium Gallery access</marquee>
+  <marquee *ngIf="primeMember" class="prime">Congratulations!!! Now you have a Premium Gallery access</marquee>
+  <hr>
   <img src="https://www.apkbooth.com/wp-content/uploads/2019/01/pubg-3588510-1920x1080.jpg">
   <img src="https://www.apkbooth.com/wp-content/uploads/2019/01/pubg-helmet-guy-2018-4k-00-1920x1080.jpg">
   <img src="https://www.apkbooth.com/wp-content/uploads/2019/01/pubg-illustration-4k-42-1920x1080.jpg">

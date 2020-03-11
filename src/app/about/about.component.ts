@@ -18,6 +18,7 @@ export class AboutComponent implements OnInit {
 
   Logout() {
     localStorage.setItem('authStatus', "404");
+    localStorage.setItem('username', '');
     this._Router.navigateByUrl('/home');
   }
 

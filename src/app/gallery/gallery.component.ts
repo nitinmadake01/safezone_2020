@@ -14,11 +14,15 @@ export class GalleryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(!localStorage.getItem('username')){
+      this._Router.navigateByUrl('/home');
+    }
     this.loggedUser = localStorage.getItem('username') ? localStorage.getItem('username') : '';
   }
 
   Logout(){
     localStorage.setItem('authStatus', "404");
+    localStorage.setItem('username', '');
     this._Router.navigateByUrl('/home');
   }
 
