@@ -1,14 +1,14 @@
 {
     "usersDB": [
         {
-            "userid": "1",
-            "password": "1",
-            "username": "nitinm"
+            "userid": "abc@media.com",
+            "password": "abc123",
+            "username": "tom"
         },
         {
-            "userid": "vaibhavg@media.com",
-            "password": "test123",
-            "username": "vaibhavg"
+            "userid": "def@media.com",
+            "password": "def123",
+            "username": "dick"
         }
     ]
 }
